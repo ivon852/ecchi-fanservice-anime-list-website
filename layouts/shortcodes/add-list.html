@@ -1,0 +1,104 @@
+{{ $targetfile := .Get 0 }}
+{{/* 要讀取的檔案 */}}
+{{ $datafile := index site.Data $targetfile }}
+
+{{/* 合併 JSON 時要讀取的子清單 key，例如 2020-2029。留空則沿用舊格式。 */}}
+{{ $listkey := "" }}
+{{ if ge (len .Params) 5 }}
+{{ $listkey = .Get 4 }}
+{{ end }}
+{{ $inputlist := $datafile }}
+{{ with $listkey }}
+{{ if reflect.IsMap $datafile }}
+{{ $inputlist = index $datafile . }}
+{{ else if and (reflect.IsSlice $datafile) (eq (len .) 9) }}
+{{ $startyear := int (substr . 0 4) }}
+{{ $endyear := int (substr . 5 4) }}
+{{ $filteredlist := slice }}
+{{ range $datafile }}
+{{ $year := int (substr .date 0 4) }}
+{{ if and (ge $year $startyear) (le $year $endyear) }}
+{{ $filteredlist = $filteredlist | append . }}
+{{ end }}
+{{ end }}
+{{ $inputlist = $filteredlist }}
+{{ end }}
+{{ end }}
+
+{{/* 文章語言 */}}
+{{ $targetlanguage := .Get 1 }}
+
+{{/* 翻譯檔案 */}}
+{{ $translationlist := index site.Data "translation" }}
+
+{{/* 是否開啟懸浮標題 */}}
+{{ $disablecaption := .Get 2 }}
+
+{{/* 圖片路徑 */}}
+{{ $path := .Get 3 }}
+
+
+{{/* 表格 */}}
+<table>
+  <thead>
+    <tr>
+      {{ with $translationlist }}
+      <th style="width:20%; vertical-align:top; text-align:left;"> {{ index .Name $targetlanguage }} </th>
+      <th style="width:20%; vertical-align:top; text-align:left"> {{ index .Year $targetlanguage }} </th>
+      <th style="vertical-align:top; text-align:left"> {{ index .Images $targetlanguage }} </th>
+      <th style="width:20%; vertical-align:top; text-align:left"> {{ index .Description $targetlanguage }} </th>
+    </tr>
+    {{ end }}
+  </thead>
+  <tbody>
+    {{ range $inputlist }}
+    <tr>
+      <td style="vertical-align:top; text-align:left">{{ index .name "zh-TW" }}<br><br>{{ index .name "ja-JP"
+        }}<br><br>{{ index .name "en-US" }}</td>
+      <td style="vertical-align:top; text-align:center">{{ .date }}</td>
+
+      {{ if not (eq $disablecaption "disable-captions" ) }}
+
+      <td style="vertical-align:top; text-align:center">
+        <img src="{{ $path }}{{ .images.img1.imgsrc }}" loading="lazy"
+          alt="{{ index .images.img1 $targetlanguage }} nude fanservice"
+          title="{{ index .images.img1 $targetlanguage }}"
+          onerror="this.onerror=null;this.src='/images/dummy.webp'"></img>
+        <p>{{ index .images.img1 "zh-TW" }}</p>
+        <p>{{ index .images.img1 "ja-JP" }}</p>
+        <p>{{ index .images.img1 "en-US" }}</p>
+        <img src="{{ $path }}{{ .images.img2.imgsrc }}" loading="lazy"
+          alt="{{ index .images.img2 $targetlanguage }}"
+          title="{{ index .images.img2 $targetlanguage }}"
+          onerror="this.onerror=null;this.src='/images/dummy.webp'"></img>
+        <p>{{ index .images.img2 "zh-TW" }}</p>
+        <p>{{ index .images.img2 "ja-JP" }}</p>
+        <p>{{ index .images.img2 "en-US" }}</p>
+        <img src="{{ $path }}{{ .images.img3.imgsrc }}" loading="lazy"
+          alt="{{ index .images.img3 $targetlanguage }}"
+          title="{{ index .images.img3 $targetlanguage }}"
+          onerror="this.onerror=null;this.src='/images/dummy.webp'"></img>
+        <p>{{ index .images.img3 "zh-TW" }}</p>
+        <p>{{ index .images.img3 "ja-JP" }}</p>
+        <p>{{ index .images.img3 "en-US" }}</p>
+      </td>
+
+      {{ else }}
+
+      {{/*未完成前，不要顯示註解*/}}
+      <td style="vertical-align:top; text-align:center">
+        <img src="{{ $path }}{{ .images.img1.imgsrc }}" loading="lazy" alt="{{ index .name $targetlanguage }}"
+          title="{{ index .name $targetlanguage }}" onerror="this.onerror=null;this.src='/images/dummy.webp'"></img>
+        <img src="{{ $path }}{{ .images.img2.imgsrc }}" loading="lazy" alt="{{ index .name $targetlanguage }}"
+          title="{{ index .name $targetlanguage }}" onerror="this.onerror=null;this.src='/images/dummy.webp'"></img>
+        <img src="{{ $path }}{{ .images.img3.imgsrc }}" loading="lazy" alt="{{ index .name $targetlanguage }}"
+          title="{{ index .name $targetlanguage }}" onerror="this.onerror=null;this.src='/images/dummy.webp'"></img>
+      </td>
+
+      {{ end }}
+
+      <td style="vertical-align:top; text-align:left">{{ index .description $targetlanguage }}</td>
+    </tr>
+    {{ end }}
+  </tbody>
+</table>

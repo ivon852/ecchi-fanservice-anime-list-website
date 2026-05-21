@@ -1,0 +1,77 @@
+disabled = false
+languageCode = "zh-TW"
+languageName = "中文"
+weight = 1
+title = "Ecchi Fanservice Anime List 範例網頁"
+contentDir = "content.zh-tw"
+hasCJKLanguage = true
+
+[params]
+  displayName = "中文"
+  isoCode = "zh-TW"
+  rtl = false
+  dateFormat = "2006年1月2日"
+  #logo = "img/logo.svg"
+  # secondaryLogo = "img/secondary-logo.png"
+  description = "A friendly pussy."
+  copyright = "本站內容皆以CC BY-NC-SA 4.0釋出。分享請註明來源。"
+
+# 修改：不要在首頁顯示大頭貼
+#[params.author]
+#   name = "Admin"
+#   email = "htxacg.cc.8j4or@aleeas.com"
+#   image = "img/avatar.png"
+#   imageQuality = 96
+#   headline = ""
+#   bio = ""
+#   links = [
+#   ]
+#     { email = "mailto:hello@your_domain.com" },
+#     { link = "https://link-to-some-website.com/" },
+#     { amazon = "https://www.amazon.com/hz/wishlist/ls/wishlist-id" },
+#     { apple = "https://www.apple.com" },
+#     { blogger = "https://username.blogspot.com/" },
+#     { bluesky = "https://bsky.app/profile/username" },
+#     { codepen = "https://codepen.io/username" },
+#     { dev = "https://dev.to/username" },
+#     { discord = "https://discord.gg/invitecode" },
+#     { dribbble = "https://dribbble.com/username" },
+#     { facebook = "https://facebook.com/username" },
+#     { flickr = "https://www.flickr.com/photos/username/" },
+#     { foursquare = "https://foursquare.com/username" },
+#     { github = "https://github.com/username" },
+#     { gitlab = "https://gitlab.com/username" },
+#     { google = "https://www.google.com/" },
+#     { hashnode = "https://username.hashnode.dev" },
+#     { instagram = "https://instagram.com/username" },
+#     { itch-io = "https://username.itch.io" },
+#     { keybase = "https://keybase.io/username" },
+#     { kickstarter = "https://www.kickstarter.com/profile/username" },
+#     { lastfm = "https://lastfm.com/user/username" },
+#     { linkedin = "https://linkedin.com/in/username" },
+#     { mastodon = "https://mastodon.instance/@username" },
+#     { medium = "https://medium.com/username" },
+#     { microsoft = "https://www.microsoft.com/" },
+#     { orcid = "https://orcid.org/userid" },
+#     { patreon = "https://www.patreon.com/username" },
+#     { pinterest = "https://pinterest.com/username" },
+#     { reddit = "https://reddit.com/user/username" },
+#     { researchgate = "https://www.researchgate.net/profile/username" },
+#     { slack = "https://workspace.url/team/userid" },
+#     { snapchat = "https://snapchat.com/add/username" },
+#     { soundcloud = "https://soundcloud.com/username" },
+#     { spotify = "https://open.spotify.com/user/userid" },
+#     { stack-overflow = "https://stackoverflow.com/users/userid/username" },
+#     { steam = "https://steamcommunity.com/profiles/userid" },
+#     { telegram = "https://t.me/username" },
+#     { threads = "https://www.threads.net/@username" },
+#     { tiktok = "https://tiktok.com/@username" },
+#     { tumblr = "https://username.tumblr.com" },
+#     { twitch = "https://twitch.tv/username" },
+#     { twitter = "https://twitter.com/username" },
+#     { x-twitter = "https://twitter.com/username" },
+#     { whatsapp = "https://wa.me/phone-number" },
+#     { youtube = "https://youtube.com/username" },
+#     { ko-fi = "https://ko-fi.com/username" },
+#     { codeberg = "https://codeberg.org/username"},
+#   ]
