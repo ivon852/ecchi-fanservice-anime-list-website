@@ -1,5 +1,7 @@
 # Ecchi Fanservice Anime List Website
 
+[繁體中文說明](README.zh-tw.md)
+
 This repository is a Hugo starter website for publishing structured "Ecchi Anime Fanservice List" from JSON data files.
 
 
