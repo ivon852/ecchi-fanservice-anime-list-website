@@ -4,6 +4,7 @@
 
 This repository is a Hugo starter website for publishing structured "Ecchi Anime Fanservice List" from JSON data files.
 
+Example website: [https://htxacg.cc/posts/uncensored-ecchi-anime-list/](https://htxacg.cc/posts/uncensored-ecchi-anime-list/)
 
 ## Getting Started
 

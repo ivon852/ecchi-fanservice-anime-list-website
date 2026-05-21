@@ -2,6 +2,8 @@
 
 這個儲存庫是一個 Hugo 入門網站，用於從 JSON 資料檔發布結構化的「Ecchi Anime Fanservice List」。
 
+範例網站：[https://htxacg.cc/posts/uncensored-ecchi-anime-list/](https://htxacg.cc/posts/uncensored-ecchi-anime-list/)
+
 
 ## 開始使用
 
